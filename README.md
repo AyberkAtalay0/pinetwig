@@ -4,3 +4,5 @@ A pinescript-like financial data analysis package
 ```
 pip install pinetwig
 ```
+
+https://pypi.org/project/pinetwig/
