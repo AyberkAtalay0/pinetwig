@@ -10,7 +10,7 @@ pip install pinetwig
 ```
 
 ## Examples
-Create "main.py" file with one of the following examples:
+Create ```main.py``` file with one of the following examples:
 
 #### Scraping data from Binance.
 ```
