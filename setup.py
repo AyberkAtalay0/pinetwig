@@ -11,7 +11,7 @@ setup(
     author_email='ayberkatalaypersonal@gmail.com',
     description=DESCRIPTION,
     py_modules=['pinetwig'],
-    packages=find_packages(), #["__init__", "data", "functions", "indicators", "modules"],
+    packages=find_packages(),
     version=VERSION,
     license='MIT',
     url='https://github.com/AyberkAtalay0/pinetwig',
