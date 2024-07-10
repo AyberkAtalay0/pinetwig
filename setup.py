@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.1.5'
+VERSION = '0.1.6'
 DESCRIPTION = 'A pinescript-like financial data analysis package'
 
 setup(
@@ -18,7 +18,7 @@ setup(
         'pandas',
         'numpy',
         'python-binance',
-        'websocket',
+        'websockets',
         'websocket-client',
         'datetime'
     ],
