@@ -18,8 +18,8 @@ setup(
         'pandas',
         'numpy',
         'python-binance',
-        'websocket-client==0.44.0',
         'websocket',
+        'websocket-client',
         'datetime'
     ],
     classifiers=[
