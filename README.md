@@ -38,5 +38,5 @@ for i in pt.indicators.__dir__():
 ```
 
 ## Learn more
-- [Github Page](https://github.com/AyberkAtalay0/pinetwig/)
-- [PyPI](https://pypi.org/project/pinetwig/)
+- [Pinetwig Github](https://github.com/AyberkAtalay0/pinetwig/)
+- [Pinetwig PyPI](https://pypi.org/project/pinetwig/)
