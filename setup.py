@@ -3,10 +3,16 @@ from setuptools import setup, find_packages
 VERSION = '0.1.6'
 DESCRIPTION = 'A pinescript-like financial data analysis package'
 
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
+
 setup(
     name='pinetwig',
     author='Ayberk ATALAY',
     author_email='ayberkatalaypersonal@gmail.com',
+    long_description=long_description,
+    long_description_content_type='text/markdown'
     description=DESCRIPTION,
     py_modules=['pinetwig'],
     packages=find_packages(),
