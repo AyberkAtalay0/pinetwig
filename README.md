@@ -1,5 +1,5 @@
 # pinetwig 0.1.6
-[Pinetwig](https://pypi.org/project/pinetwig/) is a pinescript-like financial data analysis and trading package.
+[PineTwig](https://pypi.org/project/pinetwig/) is a pinescript-like financial data analysis and trading package.
 
 ## Requirements
 - Python 3.7 or above on Windows, Linux or macOS
@@ -38,5 +38,5 @@ for i in pt.indicators.__dir__():
 ```
 
 ## Learn more
-- [Pinetwig GitHub](https://github.com/AyberkAtalay0/pinetwig/)
-- [Pinetwig PyPI](https://pypi.org/project/pinetwig/)
+- [PineTwig GitHub](https://github.com/AyberkAtalay0/pinetwig/)
+- [PineTwig PyPI](https://pypi.org/project/pinetwig/)
