@@ -2,6 +2,12 @@
 # Release notes
 All notable changes to this project will be documented in this file.
 
+### 0.2.1
+
+- 'linreg' function added
+- 'variance' function added
+- 'covariance' function added
+
 ### 0.2.0
 
 - 'ray' function added
