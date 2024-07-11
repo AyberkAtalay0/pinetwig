@@ -1,6 +1,7 @@
 from .modules import *
 
 # Math Functions
+
 def cos(var): 
     if not type(var) in (list, tuple, np.ndarray, int, float): raise Exception("cos(): Variable is not an array, float or integer.")
     if type(var) in (int, float): 
@@ -56,14 +57,14 @@ def pow(var1, var2):
             output.append(i**var2)
         return output
 
-def abs(var):
-    if not type(var) in (list, tuple, np.ndarray, int, float): raise Exception("abs(): Variable is not an array, float or integer.")
+def abst(var):
+    if not type(var) in (list, tuple, np.ndarray, int, float): raise Exception("abst(): Variable is not an array, float or integer.")
     if type(var) in (int, float): 
         return abs(var)
     else:
         output = []
         for i in var:
-            if not type(i) in (int, float): raise Exception("abs(): Element is not a float or integer.")
+            if not type(i) in (int, float): raise Exception("abst(): Element is not a float or integer.")
             output.append(abs(i))
         return output
 
@@ -225,3 +226,18 @@ def stdev(var, last=None):
 def barssince(): pass
 
 def valuewhen(): pass
+
+# Custom
+
+def ray(x, point1, point2):
+    """
+    #### Example Parameters
+    - x      = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    - point1 = (2, 4)
+    - point2 = (4, 3)
+    """
+    output = [np.nan for i in range(len(x))]
+    dif = (point2[1]-point1[1])/(x.index(point2[0])-x.index(point1[0]))
+    dif = 0-abst(dif) if point1[1] < point2[1] else abst(dif)
+    for i in range(x.index(point1[0]), len(x)): output[i] = point1[1] + dif*(x.index(point1[0])-i)
+    return output

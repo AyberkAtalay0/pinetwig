@@ -1,5 +1,5 @@
-# pinetwig 0.1.6
-[PineTwig](https://pypi.org/project/pinetwig/) is a pinescript-like financial data analysis and trading package.
+# pinetwig 0.2.0
+[PineTwig](https://github.com/AyberkAtalay0/pinetwig/) is a pinescript-like financial data analysis and trading package.
 
 ## Requirements
 - Python 3.7 or above on Windows, Linux or macOS
@@ -16,8 +16,7 @@ Create ```main.py``` file with one of the following examples:
 ```
 import pinetwig as pt
 
-data = pt.BinanceData("BTCUSDT", "1h", "2 day ago UTC", "now")
-df = data.DataFrame
+df = pt.getDataFromBinance(ticker="BTCUSDT", interval="1h", start="2 day ago UTC", end="now")
 print(df)
 ```
 
@@ -25,7 +24,7 @@ print(df)
 ```
 import pinetwig as pt
 
-df = pt.GetTradingViewData(symbol="NASDAQ:AAPL", interval="5m", length=5000)
+df = pt.getDataFromTradingView(symbol="NASDAQ:AAPL", interval="5m", length=5000)
 print(df)
 ```
 
@@ -33,8 +32,35 @@ print(df)
 ```
 import pinetwig as pt
 
-for i in pt.indicators.__dir__():
+for i in pt.indicators.all:
     print(i)
+```
+
+#### Generating a ray and visualizing.
+```
+import pinetwig as pt
+
+x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+y = [-1, 1, -1, 1, -1, 1, -1, 1, -1, 1]
+ray = pt.ray(x, (0, 0), (2, 1))
+
+pt.visualize(lines={"Values": {"x": x, "y": y}, "Ray": {"x": x, "y": ray}})
+```
+
+#### Visualizing a financial dataframe.
+```
+import pinetwig as pt
+
+df = pt.getDataFromBinance(ticker="BTCUSDT", interval="1h", start="2 day ago UTC", end="now")
+
+df["SMA12"] = pt.sma(df["Close"], 12)
+
+x, y = list(range(len(df))), df["Close"].tolist()
+df["Ray1"] = pt.ray(x, (x[0], y[0]), (x[-1], y[-1]*1.02))
+df["Ray2"] = pt.ray(x, (x[0], y[0]), (x[-1], y[-1]*0.98))
+
+chart = pt.FancyChart(df, theme="light")
+chart.show()
 ```
 
 ## Learn more
