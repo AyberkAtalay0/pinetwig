@@ -24,7 +24,7 @@ print(df)
 ```
 import pinetwig as pt
 
-df = pt.getDataFromTradingView(symbol="NASDAQ:AAPL", interval="5m", length=5000)
+df = pt.getDataFromTradingView(ticker="NASDAQ:AAPL", interval="5m", length=5000)
 print(df)
 ```
 
