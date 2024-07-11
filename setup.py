@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.2.0'
+VERSION = '0.2.1'
 DESCRIPTION = 'A pinescript-like financial data analysis and trading package'
 
 from pathlib import Path
