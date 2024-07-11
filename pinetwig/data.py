@@ -4,9 +4,9 @@ from .modules import *
 def GetTradingViewData(symbol, interval, length=5000):
     """
     Example Parameters;
-    symbol = "NASDAQ:AAPL"
+    symbol   = "NASDAQ:AAPL"
     interval = "5m"
-    length = 5000 (max 5000)
+    length   = 5000 (max 5000)
     """
     keys = list("abcdefghijklmnoprstuvyzwx")
     chars = ["\\","`","*","_","{","}","[","]","(",")",">","#","+","-",".","!","$","\""]+keys
