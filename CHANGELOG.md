@@ -2,6 +2,13 @@
 # Release notes
 All notable changes to this project will be documented in this file.
 
+### 0.2.2
+
+- 'pinetwig.all_functions' list added
+- 'pinetwig.indicators.all' list removed
+- 'pinetwig.all_indicators' list added
+- Some bug fixes
+
 ### 0.2.1
 
 - 'linreg' function added
