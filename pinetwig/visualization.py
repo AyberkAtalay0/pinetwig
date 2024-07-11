@@ -1,5 +1,6 @@
-from .modules import *
-from .functions import *
+import random, pandas as pd, numpy as np, plotly.graph_objects as go, matplotlib.pyplot as plt, os
+from plotly.subplots import make_subplots
+from .functions import highest
 
 # Visualization
 
@@ -18,7 +19,8 @@ def visualize(lines, filename=None):
         if not type(x) in (list, tuple, np.ndarray): raise Exception("visualize(): 'x' is not an array.")
         if not type(y) in (list, tuple, np.ndarray): raise Exception("visualize(): 'y' is not an array.")
         if not len(x) == len(y): raise Exception("visualize(): 'x' and 'y' must be the same length.")
-        elems.append(plt.plot(x, y))
+        elem = plt.plot(x, y)
+        elems.append(elem)
     plt.legend(elems, list(lines.keys()))
 
     if filename == None:

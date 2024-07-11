@@ -1,17 +1,18 @@
-from .modules import *
-from .functions import *
+import pandas as pd, numpy as np
+from .functions import multlist, divlist, sqrt
 
 # Decorator
-all = []
-def register():
+
+all_indicators = []
+def register_indicator():
     def wrapper(f):
-        all.append(f.__name__)
+        all_indicators.append(f.__name__)
         return f
     return wrapper
 
 # Indicators
 
-@register()
+@register_indicator()
 def tr(close, high, low, type=1):
     cl, hi, lo = [i for i in close], [i for i in high], [i for i in low]
     srdf = pd.DataFrame({"cl":cl, "hi":hi, "lo":lo})
@@ -22,28 +23,28 @@ def tr(close, high, low, type=1):
     x1 = np.max(ranges, axis=1)
     return x1.tolist() if type==1 else x1
 
-@register()
+@register_indicator()
 def atr(close, high, low, period, type=1):
     cl, hi, lo = [i for i in close], [i for i in high], [i for i in low]
     srdf = pd.DataFrame({"tr":tr(close, high, low)})
     x1 = srdf["tr"].rolling(period).sum()/period
     return x1.tolist() if type==1 else x1
 
-@register()
+@register_indicator()
 def sma(source, period, type=1):
     src = [i for i in source]
     srdf = pd.DataFrame({"src":src})
     x1 = srdf["src"].rolling(period).mean()
     return x1.tolist() if type==1 else x1
 
-@register()
+@register_indicator()
 def ema(source, period, type=1):
     src = [i for i in source]
     srdf = pd.DataFrame({"src":src})
     x1 = srdf["src"].ewm(span=period, adjust=False).mean()
     return x1.tolist() if type==1 else x1
 
-@register()
+@register_indicator()
 def rma(source, period, type=1):
     src = [i for i in source]
     srdf = pd.DataFrame({"src":src})
@@ -53,21 +54,21 @@ def rma(source, period, type=1):
         else: x1.append((src[i]+(period-1)*x1[-1])/period)
     return x1 if type==1 else pd.DataFrame({"x":x1})["x"]
 
-@register()
+@register_indicator()
 def wma(source, period, type=1):
     src = [i for i in source]
     srdf = pd.DataFrame({"src":src})
     x1 = srdf["src"].rolling(period).apply(lambda x: ((np.arange(period)+1)*x).sum()/(np.arange(period)+1).sum(), raw=True)
     return x1.tolist() if type==1 else x1
 
-@register()
+@register_indicator()
 def hma(source, period, type=1):
     src = [i for i in source]
     srdf = pd.DataFrame({"src":src})
     x1 = wma(wma(source, period//2, type=2).multiply(2).sub(wma(source, period)), int(sqrt(period)), type=2)
     return x1.tolist() if type==1 else x1
 
-@register()
+@register_indicator()
 def rsi(source, period, type=1):
     src = [i for i in source]
     srdf = pd.DataFrame({"src":src})
@@ -79,7 +80,7 @@ def rsi(source, period, type=1):
     x1 = 100 - (100 / (1 + ma_up / ma_down))
     return x1.tolist() if type==1 else x1
 
-@register()
+@register_indicator()
 def vwma(source, volume, period, type=1):
     src, vol = [i for i in source], [i for i in volume]
     mldf = pd.DataFrame({"mlt":multlist(src, vol)})
