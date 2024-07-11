@@ -1,4 +1,4 @@
-# pinetwig 0.2.0
+# pinetwig 0.2.1
 [PineTwig](https://github.com/AyberkAtalay0/pinetwig/) is a pinescript-like financial data analysis and trading package.
 
 ## Requirements
