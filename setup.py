@@ -26,7 +26,9 @@ setup(
         'python-binance',
         'websocket-client',
         'websockets',
-        'datetime'
+        'datetime',
+        'plotly',
+        'matplotlib'
     ],
     classifiers=[
         'Programming Language :: Python :: 3',
