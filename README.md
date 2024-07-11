@@ -54,10 +54,7 @@ import pinetwig as pt
 df = pt.getDataFromBinance(ticker="BTCUSDT", interval="1h", start="2 day ago UTC", end="now")
 
 df["SMA12"] = pt.sma(df["Close"], 12)
-
-x, y = list(range(len(df))), df["Close"].tolist()
-df["Ray1"] = pt.ray(x, (x[0], y[0]), (x[-1], y[-1]*1.02))
-df["Ray2"] = pt.ray(x, (x[0], y[0]), (x[-1], y[-1]*0.98))
+df["Linear Reg."] = pt.linreg(list(range(len(df))), df["Close"].tolist())
 
 chart = pt.FancyChart(df, theme="light")
 chart.show()
