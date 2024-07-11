@@ -32,15 +32,8 @@ print(df)
 ```
 import pinetwig as pt
 
-print("Indicators")
-for i in pt.all_indicators:
-    print(i)
-
-print("-")
-
-print("Functions")
-for i in pt.all_functions:
-    print(i)
+print("Indicators:", pt.all_indicators)
+print("Functions:", pt.all_functions)
 ```
 
 #### Generating a ray and visualizing.
