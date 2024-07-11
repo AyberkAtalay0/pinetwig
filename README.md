@@ -1,4 +1,4 @@
-# pinetwig 0.2.1
+# pinetwig 0.2.2
 [PineTwig](https://github.com/AyberkAtalay0/pinetwig/) is a pinescript-like financial data analysis and trading package.
 
 ## Requirements
@@ -28,11 +28,18 @@ df = pt.getDataFromTradingView(ticker="NASDAQ:AAPL", interval="5m", length=5000)
 print(df)
 ```
 
-#### List available indicators.
+#### List available indicators and functions.
 ```
 import pinetwig as pt
 
-for i in pt.indicators.all:
+print("Indicators")
+for i in pt.all_indicators:
+    print(i)
+
+print("-")
+
+print("Functions")
+for i in pt.all_functions:
     print(i)
 ```
 
